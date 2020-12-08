@@ -9,4 +9,5 @@ const events = require('./events')
 $(() => {
   $('.after-login').hide()
   $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
 })
