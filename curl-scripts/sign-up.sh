@@ -1,10 +1,13 @@
-# Terminal command: EMAIL="email" PASSWORD="password" sh curl-scripts/auth/sign-up.sh
-const config = require('./../config')
+# Terminal command: EMAIL="email" PASSWORD="password" sh curl-scripts/sign-up.sh
 
-curl config.apiUrl \
+curl "https://tic-tac-toe-api-development.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
-    
+    "credentials": {
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'",
+      "password_confirmation": "'"${PASSWORD}"'"
+    }
   }'
