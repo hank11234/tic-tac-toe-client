@@ -15,7 +15,9 @@
       <h1>Welcome to The Tic-Tac-Tunderdome!</h1>
 
       <p id="message"></p>
+
       <div class="before-login">
+
         <h4>Sign-Up</h4>
         <form id="sign-up">
           <input type="text" name="credentials[email]" placeholder="Email">
@@ -33,7 +35,17 @@
       </div>
 
       <div class="after-login">
-        
+
+        <h5>Change Password</h5>
+        <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button type="submit">Change Password</button>
+        </form>
+
+        <form id="logout">
+          <button type="submit">Log out</button>
+        </form>
       </div>
     </body>
 </html>
