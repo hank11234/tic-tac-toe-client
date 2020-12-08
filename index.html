@@ -15,20 +15,25 @@
       <h1>Welcome to The Tic-Tac-Tunderdome!</h1>
 
       <p id="message"></p>
+      <div class="before-login">
+        <h4>Sign-Up</h4>
+        <form id="sign-up">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button type="submit">Sign-Up</button>
+        </form>
 
-      <h4>Sign-Up</h4>
-      <form id="sign-up">
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <button type="submit">Sign-Up</button>
-      </form>
+        <h4>Sign-In</h4>
+        <form id="sign-in">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button type="submit">Sign-In</button>
+        </form>
+      </div>
 
-      <h4>Sign-In</h4>
-      <form id="sign-in">
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <button type="submit">Sign-In</button>
-      </form>
+      <div class="after-login">
+        
+      </div>
     </body>
 </html>
