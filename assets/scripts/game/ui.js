@@ -1,7 +1,7 @@
 const store = require('./../store')
 
 const gameStartSuccess = function() {
-  
+  $('#message').text(null)
 }
 
 const onError = function (error) {
