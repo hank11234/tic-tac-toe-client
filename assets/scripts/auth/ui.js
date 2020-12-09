@@ -19,6 +19,7 @@ const changePasswordSuccess = function () {
 const logoutSuccess = function () {
   $('#message').text('Logged out')
   $('.after-login').hide()
+  $('#gameBoard').hide()
   $('.before-login').show()
   store.user = null
   $('form').trigger('reset')
