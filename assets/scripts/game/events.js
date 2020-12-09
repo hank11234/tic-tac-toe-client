@@ -4,6 +4,7 @@ const ui = require('./ui')
 
 const startGame = function () {
   event.preventDefault()
+  $('.col-4').text('[]')
   api.newGame()
     .then(ui.gameStartSuccess)
     .catch(ui.onError)
