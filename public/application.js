@@ -16551,7 +16551,7 @@ $(function () {
   $('#change-password').on('submit', authEvents.onChangePassword);
   $('#logout').on('submit', authEvents.onLogout);
   $('#newGameButton').on('click', gameEvents.startGame);
-  $('.row').on('click', gameEvents.takeTurn);
+  $('.col-4').one('click', gameEvents.takeTurn);
   // $('#button1').on('click', gameEvents.takeTurn)
   // $('#button2').on('click', gameEvents.takeTurn)
   // $('#button3').on('click', gameEvents.takeTurn)
@@ -16797,15 +16797,21 @@ module.exports = addNestedValue;
 
 var api = __webpack_require__(345);
 var ui = __webpack_require__(346);
+var xTurn = void 0;
+var oTurn = void 0;
 
 var startGame = function startGame() {
-  event.preventDefault();
   $('.col-4').text('[]');
   api.newGame().then(ui.gameStartSuccess).catch(ui.onError);
 };
 
 var takeTurn = function takeTurn(event) {
-  $(event.target).text('x');
+  var currentTurn = xTurn ? ($(event.target).text('o'), $('#message').text('X\'s turn')) : ($(event.target).text('x'), $('#message').text('O\'s turn'));
+  switchSides();
+};
+
+var switchSides = function switchSides() {
+  xTurn = !xTurn;
 };
 
 module.exports = {
@@ -16851,8 +16857,9 @@ module.exports = {
 var store = __webpack_require__(67);
 
 var gameStartSuccess = function gameStartSuccess(response) {
-  $('#message').text(null);
+  $('#message').text('X starts!');
   store.game = response.game;
+  console.log(store);
 };
 
 var onError = function onError(error) {
