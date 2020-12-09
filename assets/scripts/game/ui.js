@@ -1,8 +1,9 @@
 const store = require('./../store')
 
 const gameStartSuccess = function(response) {
-  $('#message').text(null)
+  $('#message').text('X starts!')
   store.game = response.game
+  console.log(store);
 }
 
 const onError = function (error) {
