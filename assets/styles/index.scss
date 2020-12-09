@@ -1,1 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1, h4, h5, #message {
+  text-align: center;
+  color: #ffffff;
+}
+
+body {
+  background-color: #580494
+}
+
+.before-login {
+  text-align: center;
+}
+
+.after-login {
+  text-align: center;
+}
+
+#newGameButton {
+  font-size: 30px;
+}
+
+.foot {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
