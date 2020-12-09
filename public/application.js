@@ -16800,6 +16800,7 @@ var ui = __webpack_require__(346);
 
 var startGame = function startGame() {
   event.preventDefault();
+  $('.col-4').text('[]');
   api.newGame().then(ui.gameStartSuccess).catch(ui.onError);
 };
 
@@ -16849,8 +16850,9 @@ module.exports = {
 
 var store = __webpack_require__(67);
 
-var gameStartSuccess = function gameStartSuccess() {
+var gameStartSuccess = function gameStartSuccess(response) {
   $('#message').text(null);
+  store.game = response.game;
 };
 
 var onError = function onError(error) {
