@@ -16551,7 +16551,7 @@ $(function () {
   $('#change-password').on('submit', authEvents.onChangePassword);
   $('#logout').on('submit', authEvents.onLogout);
   $('#newGameButton').on('click', gameEvents.startGame);
-  $('.col-4').one('click', gameEvents.takeTurn);
+  $('.col-4').on('click', gameEvents.takeTurn);
   // $('#button1').on('click', gameEvents.takeTurn)
   // $('#button2').on('click', gameEvents.takeTurn)
   // $('#button3').on('click', gameEvents.takeTurn)
@@ -16797,21 +16797,32 @@ module.exports = addNestedValue;
 
 var api = __webpack_require__(345);
 var ui = __webpack_require__(346);
-var xTurn = void 0;
-var oTurn = void 0;
+var currentTurn = 'X';
 
 var startGame = function startGame() {
   $('.col-4').text('[]');
+  currentTurn = 'X';
   api.newGame().then(ui.gameStartSuccess).catch(ui.onError);
 };
 
 var takeTurn = function takeTurn(event) {
-  var currentTurn = xTurn ? ($(event.target).text('o'), $('#message').text('X\'s turn')) : ($(event.target).text('x'), $('#message').text('O\'s turn'));
-  switchSides();
+  var position = event.target.id;
+
+  if ($(event.target).text() === '[]') {
+    $(event.target).text(currentTurn);
+    $('#message').text(currentTurn + "'s turn");
+    switchSides();
+  } else {
+    $('#message').text('You must select a valid space.');
+  }
 };
 
 var switchSides = function switchSides() {
-  xTurn = !xTurn;
+  if (currentTurn == 'X') {
+    currentTurn = 'O';
+  } else {
+    currentTurn = 'X';
+  }
 };
 
 module.exports = {
