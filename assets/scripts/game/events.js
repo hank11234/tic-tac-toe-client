@@ -1,23 +1,33 @@
 const api = require('./api')
 const ui = require('./ui')
-let xTurn
-let oTurn
+let currentTurn = 'x'
 
 const startGame = function () {
-  $('.col-4').text('[]')
+  $('.col-4').text('[]');
+  currentTurn = 'x';
   api.newGame()
     .then(ui.gameStartSuccess)
     .catch(ui.onError)
 }
 
-const takeTurn = function (event) {
-  const currentTurn = xTurn ? ($(event.target).text('o'), $('#message').text('X\'s turn')) : ($(event.target).text('x'), $('#message').text('O\'s turn'))
-  switchSides()
+const takeTurn = function(event) {
+    let position = event.target.id
 
+    if ( $(event.target).text() === '[]') {
+      $(event.target).text(currentTurn)
+      $('#message').text(currentTurn + " 's turn")
+      switchSides()
+    } else {
+      $('#message').text('You must select a valid space.')
+    }
 }
 
-const switchSides = function() {
-  xTurn = !xTurn
+const switchSides = function(){
+  if(currentTurn == 'x') {
+    currentTurn = 'o'
+  } else {
+    currentTurn = 'x'
+  }
 }
 
 module.exports = {
