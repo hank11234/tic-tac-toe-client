@@ -1,5 +1,6 @@
 const config = require('./../config')
 const store = require('./../store')
+const events = require('./events')
 
 const newGame = function () {
   $('#gameBoard').show()
@@ -13,6 +14,26 @@ const newGame = function () {
   })
 }
 
+const nextTurn = function(position, currentTurn) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": position,
+          "value": currentTurn
+        },
+        "over": false
+      }
+    }
+  })
+}
+
 module.exports = {
-  newGame
+  newGame,
+  nextTurn
 }

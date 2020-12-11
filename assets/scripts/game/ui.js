@@ -1,9 +1,14 @@
 const store = require('./../store')
+const logic = require('./logic')
 
 const gameStartSuccess = function(response) {
   $('#message').text('X starts!')
   store.game = response.game
-  console.log(store);
+}
+
+const onTurnSuccess = function(response) {
+  store.game = response.game
+  logic.checkWin(store.game.cells)
 }
 
 const onError = function (error) {
@@ -13,5 +18,6 @@ const onError = function (error) {
 
 module.exports = {
   gameStartSuccess,
+  onTurnSuccess,
   onError
 }
