@@ -15,4 +15,5 @@ $(() => {
   $('#logout').on('submit', authEvents.onLogout)
   $('#newGameButton').on('click', gameEvents.startGame)
   $('.col-4').on('click', gameEvents.takeTurn)
+  $('#gamesPlayed').on('click', gameEvents.showGames)
 })

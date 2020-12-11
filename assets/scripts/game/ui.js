@@ -1,14 +1,15 @@
 const store = require('./../store')
-const logic = require('./logic')
+const events = require('./events')
 
 const gameStartSuccess = function(response) {
   $('#message').text('X starts!')
   store.game = response.game
+  store.user.games += response.game
+  console.log(store.user);
 }
 
 const onTurnSuccess = function(response) {
   store.game = response.game
-  logic.checkWin(store.game.cells)
 }
 
 const onError = function (error) {
