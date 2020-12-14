@@ -5,11 +5,14 @@ const gameStartSuccess = function(response) {
   $('#message').text('X starts!')
   store.game = response.game
   store.user.games += response.game
-  console.log(store.user);
 }
 
 const onTurnSuccess = function(response) {
   store.game = response.game
+}
+
+const indexSuccess = function(response) {
+  $('#message').text('Number of games played: ' + response.games.length)
 }
 
 const onError = function (error) {
@@ -20,5 +23,6 @@ const onError = function (error) {
 module.exports = {
   gameStartSuccess,
   onTurnSuccess,
+  indexSuccess,
   onError
 }

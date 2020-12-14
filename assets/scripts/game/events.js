@@ -69,7 +69,6 @@ const checkWin = function(gameArray) {
     } else if (gameArray[0] !== "" && gameArray[1] !== "" && gameArray[2] !== "" && gameArray[3] !== "" && gameArray[4] !== "" && gameArray[5] !== "" && gameArray[6] !== "" && gameArray[7] !== "" && gameArray[8] !== "") {
       $('#message').text('It\'s a draw!');
     }
-  console.log(gameOver);
 }
 
 const showGames = function () {
