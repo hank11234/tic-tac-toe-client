@@ -5,7 +5,7 @@ let currentTurn = 'X'
 let gameOver = false
 
 const startGame = function () {
-  $('.col-4').text('[]');
+  $('.col-4').text('');
   currentTurn = 'X';
   gameOver = false;
   api.newGame()
@@ -17,7 +17,7 @@ const takeTurn = function(event) {
     let position = event.target.id
 
     if (gameOver == false) {
-      if ($(event.target).text() === '[]') {
+      if ($(event.target).text() === '') {
         $(event.target).text(currentTurn)
         switchSides()
         $('#message').text(currentTurn + "'s turn")
