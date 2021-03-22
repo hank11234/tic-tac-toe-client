@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <link rel="stylesheet" href="./assets/styles/index.scss">
+    </head>
+    <body>
+      <h1>Welcome to The Tic-Tac-Tunderdome!</h1>
+
+      <p id="message"></p>
+
+      <div class="before-login">
+        <h3>Credentials are not saved, if you would like to use a premade account sign in with Email: testing Password: testing.</h3>
+        <h4>Sign-Up</h4>
+        <form id="sign-up">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button type="submit">Sign-Up</button>
+        </form>
+        <br>
+        <h4>Sign-In</h4>
+        <form id="sign-in">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button type="submit">Sign-In</button>
+        </form>
+      </div>
+
+      <div class="after-login">
+
+        <button type="button" id="newGameButton">NEW GAME</button>
+
+        <div class="foot">
+          <button type="button" id="gamesPlayed">Games Played</button>
+          <h5>Change Password</h5>
+          <form id="change-password">
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <button type="submit">Change Password</button>
+          </form>
+          <br>
+          <form id="logout">
+            <button type="submit">Log out</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="container" id="gameBoard">
+        <div class="row">
+          <div class="col-4" type="button" id="0"></div>
+          <div class="col-4" type="button" id="1"></div>
+          <div class="col-4" type="button" id="2"></div>
+          <div class="col-4" type="button" id="3"></div>
+          <div class="col-4" type="button" id="4"></div>
+          <div class="col-4" type="button" id="5"></div>
+          <div class="col-4" type="button" id="6"></div>
+          <div class="col-4" type="button" id="7"></div>
+          <div class="col-4" type="button" id="8"></div>
+        </div>
+      </div>
+    </body>
+</html>
